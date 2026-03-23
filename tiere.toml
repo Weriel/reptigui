@@ -1,0 +1,91 @@
+[Reptilien]
+_color = [50, 150, 50]
+_icon = "Reptilien"
+
+[Reptilien.Mochi]
+_icon = "icons/mochi.jpeg"
+Haltung = """
+Platzhalter...
+"""
+
+[Reptilien.Noodle]
+_icon = "icons/noodle.jpeg"
+Haltung = """
+Hier stehen die Haltungsinfos fuer Tier 1 (Reptilien).
+
+Fuege hier eigene Texte ein. Der Text ist vollstaendig scrollbar.
+
+- Temperatur: ...
+- Luftfeuchtigkeit: ...
+- Ernaehrung: ...
+- Terrarium: ...
+
+Weitere Hinweise koennen hier ergaenzt werden.
+"""
+
+[Reptilien.Popcorn]
+_icon = "icons/popcorn.jpeg"
+Haltung = """
+Hier stehen die Haltungsinfos fuer Tier 1 (Reptilien).
+
+Fuege hier eigene Texte ein. Der Text ist vollstaendig scrollbar.
+
+- Temperatur: ...
+- Luftfeuchtigkeit: ...
+- Ernaehrung: ...
+- Terrarium: ...
+
+Weitere Hinweise koennen hier ergaenzt werden.
+"""
+
+[Reptilien.Bibble]
+_icon = "icons/bibble.jpeg"
+Haltung = """
+Haltungsinfos fuer Tier 2 (Reptilien).
+
+- Temperatur: ...
+- Luftfeuchtigkeit: ...
+- Ernaehrung: ...
+- Terrarium: ...
+"""
+
+[Reptilien.Mu-Shu]
+_icon = "icons/mushu.jpeg"
+Haltung = """
+Haltungsinfos fuer Tier 3 (Reptilien).
+
+Fuege hier eigene Texte ein.
+"""
+
+[Reptilien.Ichigo]
+_icon = "icons/ichigo.jpeg"
+Haltung = """
+Haltungsinfos fuer Tier 3 (Reptilien).
+
+Fuege hier eigene Texte ein.
+"""
+
+
+[Garnelen]
+_color = [52, 120, 200]
+_icon = "G"
+
+[Garnelen.Tier1]
+_icon = "T"
+Haltung = """
+Haltungsinfos fuer Tier 1 (Garnelen).
+
+- Wassertemperatur: ...
+- pH-Wert: ...
+- GH/KH: ...
+- Futter: ...
+- Aquarium: ...
+"""
+
+[Garnelen.Tier2]
+_icon = "T"
+Haltung = """
+Haltungsinfos fuer Tier 2 (Garnelen).
+
+Füge hier eigene Texte ein.
+"""

@@ -1,0 +1,221 @@
+#:import dp kivy.metrics.dp
+
+# ─── Farben ──────────────────────────────────────────────────────────────────
+#:set BG           0.059, 0.071, 0.098, 1
+#:set HEADER_BG    0.078, 0.098, 0.141, 1
+#:set TILE_BG      0.110, 0.133, 0.188, 1
+#:set INPUT_BG     0.125, 0.149, 0.212, 1
+#:set TEXT_PRI     0.902, 0.922, 0.961, 1
+#:set TEXT_SEC     0.549, 0.588, 0.667, 1
+#:set LABEL_CLR    0.667, 0.706, 0.784, 1
+#:set TRANSPARENT  0, 0, 0, 0
+
+# ─── Root ─────────────────────────────────────────────────────────────────────
+<RootWidget>:
+    canvas.before:
+        Color:
+            rgba: BG
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+# ─── Header ───────────────────────────────────────────────────────────────────
+<AppHeader>:
+    size_hint_y: None
+    height: dp(80)
+    padding: [dp(24), dp(12), dp(24), dp(12)]
+    spacing: dp(10)
+    canvas.before:
+        Color:
+            rgba: HEADER_BG
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [0]
+    Image:
+        source: root.header_icon if root.is_header_image else ""
+        size_hint: None, None
+        size: (dp(48), dp(48)) if root.is_header_image else (0, 0)
+        pos_hint: {"center_y": 0.5}
+        allow_stretch: True
+        keep_ratio: True
+    Label:
+        text: root.title
+        font_size: dp(30)
+        color: root.accent_color
+        bold: True
+        size_hint_x: 1
+        halign: "left"
+        valign: "center"
+        text_size: self.size
+    Button:
+        text: "Zurück"
+        size_hint: None, None
+        size: dp(120), dp(40)
+        pos_hint: {"center_y": 0.5}
+        opacity: 1 if root.show_back else 0
+        disabled: not root.show_back
+        font_size: dp(16)
+        color: TEXT_SEC
+        background_color: TRANSPARENT
+        on_release: app.go_back()
+        canvas.before:
+            Color:
+                rgba: TILE_BG
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [dp(10)]
+
+# ─── Tile ─────────────────────────────────────────────────────────────────────
+<Tile>:
+    orientation: "vertical"
+    padding: [dp(16), dp(12)]
+    spacing: dp(4)
+    size_hint_y: None
+    height: dp(180)
+    canvas.before:
+        Color:
+            rgba: TILE_BG
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [dp(14)]
+        Color:
+            rgba: root.accent_color
+        Rectangle:
+            pos: self.x + dp(14), self.top - dp(3)
+            size: self.width - dp(28), dp(3)
+    BoxLayout:
+        size_hint_y: 1
+        Image:
+            source: root.tile_icon if root.is_image else ""
+            size_hint: 1, 1
+            allow_stretch: True
+            keep_ratio: True
+            opacity: 1 if root.is_image else 0
+        Label:
+            text: root.tile_icon if not root.is_image else ""
+            font_size: dp(36)
+            color: root.accent_color
+            halign: "left"
+            valign: "top"
+            text_size: self.size
+            opacity: 0 if root.is_image else 1
+    Label:
+        text: root.tile_name
+        font_size: dp(22)
+        bold: True
+        color: TEXT_PRI
+        halign: "left"
+        valign: "bottom"
+        text_size: self.size
+        size_hint_y: None
+        height: dp(32)
+    Label:
+        text: root.tile_subtitle
+        font_size: dp(15)
+        color: TEXT_SEC
+        halign: "left"
+        valign: "top"
+        text_size: self.size
+        size_hint_y: None
+        height: dp(22) if root.tile_subtitle else 0
+
+# ─── Tab-Button ───────────────────────────────────────────────────────────────
+<TabButton>:
+    size_hint: None, None
+    size: dp(120), dp(36)
+    font_size: dp(16)
+    color: TEXT_PRI if self.state == "down" else TEXT_SEC
+    background_color: TRANSPARENT
+    canvas.before:
+        Color:
+            rgba: self.accent_color if self.state == "down" else TILE_BG
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [dp(8)]
+
+# ─── Pflege-Input ─────────────────────────────────────────────────────────────
+<PflegeInput>:
+    orientation: "vertical"
+    size_hint: None, None
+    width: dp(340)
+    height: dp(72)
+    spacing: dp(4)
+    Label:
+        text: root.field_label
+        font_size: dp(15)
+        color: LABEL_CLR
+        halign: "left"
+        valign: "bottom"
+        text_size: self.size
+        size_hint_y: None
+        height: dp(20)
+    BoxLayout:
+        size_hint_y: None
+        height: dp(40)
+        spacing: dp(8)
+        TextInput:
+            id: tinput
+            text: ""
+            font_size: dp(18)
+            input_filter: "float"
+            multiline: False
+            padding: [dp(10), dp(8)]
+            foreground_color: TEXT_PRI
+            background_color: INPUT_BG
+            cursor_color: TEXT_PRI
+            hint_text_color: TEXT_SEC
+            size_hint_x: None
+            width: dp(260)
+        Label:
+            text: root.field_suffix
+            font_size: dp(16)
+            color: TEXT_SEC
+            size_hint: None, 1
+            width: dp(50)
+            halign: "left"
+            valign: "center"
+            text_size: self.size
+
+# ─── Pflege-Checkbox ─────────────────────────────────────────────────────────
+<PflegeCheckbox>:
+    size_hint: None, None
+    width: dp(340)
+    height: dp(44)
+    spacing: dp(14)
+    CheckBox:
+        id: cb
+        size_hint: None, None
+        size: dp(30), dp(30)
+        pos_hint: {"center_y": 0.5}
+        color: root.accent_color
+        active: False
+        canvas.before:
+            Color:
+                rgba: INPUT_BG
+            RoundedRectangle:
+                pos: self.center_x - dp(13), self.center_y - dp(13)
+                size: dp(26), dp(26)
+                radius: [dp(5)]
+            Color:
+                rgba: root.accent_color if self.active else (0.235, 0.267, 0.353, 1)
+            Line:
+                rounded_rectangle: (self.center_x - dp(13), self.center_y - dp(13), dp(26), dp(26), dp(5))
+                width: 1.5
+        canvas.after:
+            Color:
+                rgba: root.accent_color if self.active else (0, 0, 0, 0)
+            RoundedRectangle:
+                pos: self.center_x - dp(9), self.center_y - dp(9)
+                size: dp(18), dp(18)
+                radius: [dp(3)]
+    Label:
+        text: root.cb_label
+        font_size: dp(18)
+        color: TEXT_PRI
+        halign: "left"
+        valign: "center"
+        text_size: self.size

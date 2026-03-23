@@ -1,0 +1,11 @@
+[Reptilien.Mochi]
+gewicht = ""
+groesse = ""
+alter = ""
+gefuettert = false
+
+[Reptilien.Ichigo]
+gewicht = "15"
+groesse = "14"
+alter = "0.5"
+gefuettert = true
