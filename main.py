@@ -19,7 +19,7 @@ from kivy.uix.label import Label
 from kivy.uix.widget import Widget
 from kivy.metrics import dp
 from kivy.core.window import Window
-from kivy.properties import StringProperty, ListProperty, BooleanProperty
+from kivy.properties import StringProperty, ListProperty, BooleanProperty, NumericProperty
 
 # ─── Fenstergröße ─────────────────────────────────────────────────────────────
 Window.size = (1280, 800)
@@ -102,6 +102,7 @@ class Tile(ButtonBehavior, BoxLayout):
     tile_subtitle = StringProperty("")
     accent_color = ListProperty([1, 1, 1, 1])
     is_image = BooleanProperty(False)
+    tile_height = NumericProperty(dp(150))
 
     def on_tile_icon(self, _instance, value: str) -> None:
         self.is_image = value.endswith((".png", ".jpg", ".jpeg", ".webp"))
@@ -176,6 +177,7 @@ class RootWidget(BoxLayout):
                 tile_icon=cat.get("_icon", "?"),
                 tile_subtitle=f"{n} Tiere",
                 accent_color=cat["_color"],
+                tile_height=dp(300),
             )
             tile.bind(on_release=lambda _, n=name: self.show_screen("category", n))
             grid.add_widget(tile)
@@ -202,7 +204,7 @@ class RootWidget(BoxLayout):
 
         for name in animals:
             icon = cat[name].get("_icon", "?")
-            tile = Tile(tile_name=name, tile_icon=icon, accent_color=accent)
+            tile = Tile(tile_name=name, tile_icon=icon, accent_color=accent, tile_height=dp(180))
             tile.bind(
                 on_release=lambda _, n=name: self.show_screen("detail", (cat_key, n))
             )

@@ -1,6 +1,6 @@
 [Reptilien]
 _color = [50, 150, 50]
-_icon = "Reptilien"
+_icon = "icons/reptiles.png"
 
 [Reptilien.Mochi]
 _icon = "icons/mochi.jpeg"
@@ -63,29 +63,4 @@ Haltung = """
 Haltungsinfos fuer Tier 3 (Reptilien).
 
 Fuege hier eigene Texte ein.
-"""
-
-
-[Garnelen]
-_color = [52, 120, 200]
-_icon = "G"
-
-[Garnelen.Tier1]
-_icon = "T"
-Haltung = """
-Haltungsinfos fuer Tier 1 (Garnelen).
-
-- Wassertemperatur: ...
-- pH-Wert: ...
-- GH/KH: ...
-- Futter: ...
-- Aquarium: ...
-"""
-
-[Garnelen.Tier2]
-_icon = "T"
-Haltung = """
-Haltungsinfos fuer Tier 2 (Garnelen).
-
-Füge hier eigene Texte ein.
 """

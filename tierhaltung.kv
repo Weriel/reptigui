@@ -1,6 +1,5 @@
 #:import dp kivy.metrics.dp
 
-# ─── Farben ──────────────────────────────────────────────────────────────────
 #:set BG           0.059, 0.071, 0.098, 1
 #:set HEADER_BG    0.078, 0.098, 0.141, 1
 #:set TILE_BG      0.110, 0.133, 0.188, 1
@@ -10,7 +9,6 @@
 #:set LABEL_CLR    0.667, 0.706, 0.784, 1
 #:set TRANSPARENT  0, 0, 0, 0
 
-# ─── Root ─────────────────────────────────────────────────────────────────────
 <RootWidget>:
     canvas.before:
         Color:
@@ -19,7 +17,6 @@
             pos: self.pos
             size: self.size
 
-# ─── Header ───────────────────────────────────────────────────────────────────
 <AppHeader>:
     size_hint_y: None
     height: dp(80)
@@ -38,7 +35,6 @@
         size: (dp(48), dp(48)) if root.is_header_image else (0, 0)
         pos_hint: {"center_y": 0.5}
         allow_stretch: True
-        keep_ratio: True
     Label:
         text: root.title
         font_size: dp(30)
@@ -49,7 +45,7 @@
         valign: "center"
         text_size: self.size
     Button:
-        text: "Zurück"
+        text: "← Zurück"
         size_hint: None, None
         size: dp(120), dp(40)
         pos_hint: {"center_y": 0.5}
@@ -67,13 +63,12 @@
                 size: self.size
                 radius: [dp(10)]
 
-# ─── Tile ─────────────────────────────────────────────────────────────────────
 <Tile>:
     orientation: "vertical"
-    padding: [dp(16), dp(12)]
+    padding: [dp(16), dp(18), dp(16), dp(12)]
     spacing: dp(4)
     size_hint_y: None
-    height: dp(180)
+    height: root.tile_height
     canvas.before:
         Color:
             rgba: TILE_BG
@@ -90,7 +85,8 @@
         size_hint_y: 1
         Image:
             source: root.tile_icon if root.is_image else ""
-            size_hint: 1, 1
+            size_hint: None, 1
+            width: self.height
             allow_stretch: True
             keep_ratio: True
             opacity: 1 if root.is_image else 0
@@ -107,11 +103,11 @@
         font_size: dp(22)
         bold: True
         color: TEXT_PRI
-        halign: "left"
-        valign: "bottom"
+        halign: "right"
+        valign: "center"
         text_size: self.size
         size_hint_y: None
-        height: dp(32)
+        height: dp(0)
     Label:
         text: root.tile_subtitle
         font_size: dp(15)
@@ -122,7 +118,6 @@
         size_hint_y: None
         height: dp(22) if root.tile_subtitle else 0
 
-# ─── Tab-Button ───────────────────────────────────────────────────────────────
 <TabButton>:
     size_hint: None, None
     size: dp(120), dp(36)
@@ -137,7 +132,6 @@
             size: self.size
             radius: [dp(8)]
 
-# ─── Pflege-Input ─────────────────────────────────────────────────────────────
 <PflegeInput>:
     orientation: "vertical"
     size_hint: None, None
@@ -180,7 +174,6 @@
             valign: "center"
             text_size: self.size
 
-# ─── Pflege-Checkbox ─────────────────────────────────────────────────────────
 <PflegeCheckbox>:
     size_hint: None, None
     width: dp(340)
