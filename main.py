@@ -28,12 +28,34 @@ Window.clearcolor = (0.059, 0.071, 0.098, 1)
 # ─── Pfade ────────────────────────────────────────────────────────────────────
 BASE_DIR = Path(__file__).parent
 DATA_PATH = BASE_DIR / "tiere.toml"
+ARTEN_PATH = BASE_DIR / "arten.toml"
 PFLEGE_PATH = BASE_DIR / "pflege.toml"
 KV_PATH = BASE_DIR / "tierhaltung.kv"
 
 # ─── Daten laden ──────────────────────────────────────────────────────────────
 with open(DATA_PATH, "rb") as f:
     DATA = tomllib.load(f)
+
+# Artdefinitionen laden (optional – Datei muss nicht existieren)
+ARTEN: dict = {}
+if ARTEN_PATH.exists():
+    with open(ARTEN_PATH, "rb") as f:
+        ARTEN = tomllib.load(f)
+
+# Vererbung: Felder aus der Art auf Tiere übertragen, sofern das Tier
+# sie nicht selbst definiert hat. _art selbst bleibt als Metadatum erhalten.
+for cat in DATA.values():
+    if not isinstance(cat, dict):
+        continue
+    for key, animal in cat.items():
+        if key.startswith("_") or not isinstance(animal, dict):
+            continue
+        art_name = animal.get("_art")
+        if art_name and art_name in ARTEN:
+            art_defaults = ARTEN[art_name]
+            for field, value in art_defaults.items():
+                if field not in animal:
+                    animal[field] = value
 
 for cat in DATA.values():
     if "_color" in cat:
@@ -204,7 +226,8 @@ class RootWidget(BoxLayout):
 
         for name in animals:
             icon = cat[name].get("_icon", "?")
-            tile = Tile(tile_name=name, tile_icon=icon, accent_color=accent, tile_height=dp(180))
+            art = cat[name].get("_art", "")
+            tile = Tile(tile_name=name, tile_icon=icon, tile_subtitle=art, accent_color=accent, tile_height=dp(180))
             tile.bind(
                 on_release=lambda _, n=name: self.show_screen("detail", (cat_key, n))
             )

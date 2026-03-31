@@ -4,63 +4,24 @@ _icon = "icons/reptiles.png"
 
 [Reptilien.Mochi]
 _icon = "icons/mochi.jpeg"
-Haltung = """
-Platzhalter...
-"""
+_art = "Kornnatter"
 
 [Reptilien.Noodle]
 _icon = "icons/noodle.jpeg"
-Haltung = """
-Hier stehen die Haltungsinfos fuer Tier 1 (Reptilien).
-
-Fuege hier eigene Texte ein. Der Text ist vollstaendig scrollbar.
-
-- Temperatur: ...
-- Luftfeuchtigkeit: ...
-- Ernaehrung: ...
-- Terrarium: ...
-
-Weitere Hinweise koennen hier ergaenzt werden.
-"""
+_art = "Kornnatter"
 
 [Reptilien.Popcorn]
 _icon = "icons/popcorn.jpeg"
-Haltung = """
-Hier stehen die Haltungsinfos fuer Tier 1 (Reptilien).
-
-Fuege hier eigene Texte ein. Der Text ist vollstaendig scrollbar.
-
-- Temperatur: ...
-- Luftfeuchtigkeit: ...
-- Ernaehrung: ...
-- Terrarium: ...
-
-Weitere Hinweise koennen hier ergaenzt werden.
-"""
+_art = "Kornnatter"
 
 [Reptilien.Bibble]
 _icon = "icons/bibble.jpeg"
-Haltung = """
-Haltungsinfos fuer Tier 2 (Reptilien).
-
-- Temperatur: ...
-- Luftfeuchtigkeit: ...
-- Ernaehrung: ...
-- Terrarium: ...
-"""
+_art = "Hakennasennatter"
 
 [Reptilien.Mu-Shu]
 _icon = "icons/mushu.jpeg"
-Haltung = """
-Haltungsinfos fuer Tier 3 (Reptilien).
-
-Fuege hier eigene Texte ein.
-"""
+_art = "Gargoylegecko"
 
 [Reptilien.Ichigo]
 _icon = "icons/ichigo.jpeg"
-Haltung = """
-Haltungsinfos fuer Tier 3 (Reptilien).
-
-Fuege hier eigene Texte ein.
-"""
+_art = "Gargoylegecko"

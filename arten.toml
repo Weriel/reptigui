@@ -1,0 +1,51 @@
+# ─── Artdefinitionen ──────────────────────────────────────────────────────────
+# Jede Art definiert Standardwerte, die von allen Tieren dieser Art geerbt werden.
+# Tiere können einzelne Felder überschreiben (z.B. eigene Haltungsinfos).
+#
+# In tiere.toml wird einem Tier die Art so zugewiesen:
+#   [Reptilien.Noodle]
+#   _art = "Kornnatter"
+#
+# Verfügbare Felder pro Art:
+#   Haltung  – Standard-Haltungstext (wird vom Tier geerbt, wenn es keinen eigenen hat)
+
+[Kornnatter]
+Haltung = """
+Kornnatter (Pantherophis guttatus)
+
+- Temperatur: 24-27°C
+- Luftfeuchtigkeit: 50-60%
+- Ernährung: Mäuse
+
+1 bis 2 Mal in der Woche, das Terrarium mit lauwarmen Wasser besprühen.
+Nicht direkt auf die Schlangen!
+Boden trocken halten!
+"""
+
+[Gargoylegecko]
+Haltung = """
+Höckerkopfgecko (Rhacodactylus auriculatus)
+
+- Temperatur: Tags: 20-27°C; Nachts: 15-20°C
+- Luftfeuchtigkeit: 50-70%
+- Ernährung: Wanderheuschrecken und Fruchtpulver
+
+1 Mal am Tag ein paar Sekunden das Terrarium besprühen.
+Geckos trinken das Wasser auf den Blättern.
+Nicht direkt die Geckos besprühen!
+Boden trocken halten!
+
+"""
+
+[Hakennasennatter]
+Haltung = """
+Hakennasennatter (Heterodon nasicus)
+
+- Temperatur: Tags: 25-30°C; Nachts: 18-23°C
+- Basking Spot mit bis zu 35°C am Tag
+- Luftfeuchtigkeit: 40-50%
+
+Hakennasennattern können wochenlange Fresspausen einlegen!
+Nicht direkt auf die Schlangen!
+Boden trocken halten!
+"""
