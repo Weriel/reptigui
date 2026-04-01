@@ -1,5 +1,9 @@
 # ReptiGUI
-
+<p align="center">
+  <img src="logo.svg" alt="ReptiGUI Logo" width="400">
+</p>
+<h1 align="center">ReptiGUI</h1>
+<p align="center">
 A desktop application for managing and displaying reptile husbandry information — built with Python and [Kivy](https://kivy.org/).
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)
