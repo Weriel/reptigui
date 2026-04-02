@@ -3,7 +3,7 @@ name = "reptigui"
 version = "0.1.5"
 description = "Reptigui is a tool to keep care information in one place"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 dependencies = [
     "kivy",
     "tomli-w"

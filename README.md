@@ -1,14 +1,25 @@
 # ReptiGUI
+
+<style>
+figcaption {
+  background-color: white;
+  color: grey;
+  font-style: normal;
+  padding: 0px;
+  text-align: center;
+  font-size: 10px;
+}
+</style>
 <p align="center">
   <img src="logo.svg" alt="ReptiGUI Logo" width="400">
+    <figcaption>Logo is AI generated, because I suck at drawing ✌️</figcaption>
 </p>
-<h1 align="center">ReptiGUI</h1>
 <p align="center">
 
 A desktop application for managing and displaying reptile husbandry information — built with [Python](https://www.python.org) and [Kivy](https://kivy.org/).
 
-![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)
-![Kivy](https://img.shields.io/badge/Kivy-GUI-green)
+
+![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python&logoColor=white) ![Kivy](https://img.shields.io/badge/Kivy-GUI-green)
 
 ## Overview
 
@@ -80,9 +91,9 @@ python main.py
 
 ## Requirements
 
-- Python >= 3.9
+- Python $\geqslant$ 3.11
 - [Kivy](https://kivy.org/)
-- `tomli_w` (for writing TOML files)
+- tomli_w
 
 ## Data Configuration
 
