@@ -9,6 +9,7 @@ figcaption {
   text-align: center;
   font-size: 10px;
 }
+
 </style>
 <p align="center">
   <img src="logo.svg" alt="ReptiGUI Logo" width="400">
